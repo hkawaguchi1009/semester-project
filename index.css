@@ -1,0 +1,83 @@
+p{
+    font-family: "Robot Regular", "Helvetica";
+    color: #C6C79A;
+}
+
+#container{
+    background-color: #00768A;
+}
+
+#letter{
+    background-color: beige;
+    width: 90%;
+    left: 5%;
+    position:relative;
+    bottom: 5px;
+}
+
+#letterContents{
+    background-color: whitesmoke;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    left: 5%;
+    top: -5%;
+}
+#letter p{
+    color: black;
+}
+
+#bar{
+    font-family: "Arial";
+    color: #B36D2E;
+}
+
+#barDiv{
+    background-color: #B3D3EB;
+    width: 99%;
+    position: relative;
+    top: 10px;
+    left: 1%;
+}
+
+#barDiv h1{
+    font-size: 240%;
+}
+
+#header{
+    color: lightgoldenrodyellow;
+    font-family: "Helvetica";
+    font-size: 240%;
+    position:relative;
+    left: 2%;
+}
+
+#explain{
+    position: relative;
+    left: 2%;
+}
+
+#dateDiv{
+    position: relative;
+    top: -4%;
+    left: 3%;
+}
+
+#titleDiv{
+    position: relative;
+    top: -4%;
+    left: 3%;
+}
+
+textarea{
+    position: relative;
+    top: -4%;
+    left: 3%;
+    width: 96%;
+    height: 500px;
+    resize: none;
+}
+
+nav{
+    position: relative;
+}
