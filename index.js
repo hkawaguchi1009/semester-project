@@ -30,66 +30,39 @@ $(document).ready(function() {
     });
 });
 */
-function validate(event){
-    var date = document.getElementById("date");
-    var title = document.getElementById("title");
-    var contents = document.getElementById("contents");
-    if (date.value == ""){
-        date.style.backgroundColor = "Orange";
+
+function validate() {
+    var date = $("#date").val();
+    var title = $("#title");
+    var contents = $("#contents");
+    
+    if (date == ""){
+        var dateCSS = $("#date");
+        dateCSS.css("backgroundColor","Orange");
         event.preventDefault();
     }
-    if (title.value.length<=0){
-        title.style.backgroundColor = "Orange";
+    if ($(title).length-1 <=0){
+        $(title).css("backgroundColor","Orange");
         event.preventDefault();
     }
-    if (contents.value.length<=0){
-        contents.style.backgroundColor = "Orange";
+    if ($(contents).length-1 <=0){
+        $(contents).css("backgroundColor","Orange");
         event.preventDefault();
     }
 }
 
-function getAjax(success){
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","http://mcs.drury.edu");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) success(xhr.responseText);
-    };
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.responseType = 'json';
-    xhr.send();
-}
-
-function getData(response){
-    var response = response;
-    var date = response.date
-    var title = response.title;
-    var contents = response.contents;
-    var page2 = "";
-    page2 += date;
-    page2 += title;
-    page2 += contents;
-    document.getElementById("page1") = page2.innerHTML;
-}
 
 window.onload = function(){
-    var widget = document.getElementById("formWidget");
-    var send = document.getElementById("send");
-    send.addEventListener("click",validate);
+    var widget = $("#formWidget");
+    var send = $("#send");
+    send.click(validate);
     
-    var xhr = new XMLHttpRequest(); 
+    $.post("http://mcs.drury.edu",widget,"json");
     
-    xhr.onload = function(){
-        
-        var response = xhr.response;
- 
-    xhr.open("POST", "http://mcs.drury.edu");
-    xhr.responseType = 'json';
-    xhr.send(widget);
-        
-    getAjax(function(data){console.log(data);});
+    
 };
     
-}
+
 
 /*var getWidget = document.getElementById("formGet");
     var page2 = "";
