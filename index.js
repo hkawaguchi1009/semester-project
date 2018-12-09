@@ -45,7 +45,7 @@ function validate() {
         $(title).css("backgroundColor","Orange");
         event.preventDefault();
     }
-    if ($(contents).length-1 <=0){
+    if ($(contents).val() == ""){
         $(contents).css("backgroundColor","Orange");
         event.preventDefault();
     }
