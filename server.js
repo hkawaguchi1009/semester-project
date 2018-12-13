@@ -52,23 +52,6 @@ var router = express.Router();
 router.use(bodyParser.json());
 router.use("/api/diary", require("./api/diary"));
 
-app.use(bodyParser.json());
-
-/*router.post("/diary",function(req,res){
-    console.log(req.body);
-    res.sendStatus(201);
-});
-
-router.get("/diary", function(req,res){
-    
-    var dia = {
-        date: new Date(2018,10,10),  
-        title: "test data",
-        contents: "Its easy peasy"
-    };
-    
-    res.json(dia);
-})*/
-
+console.log("Through the server");
 app.use(router);
 app.listen(3000);
