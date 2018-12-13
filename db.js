@@ -26,3 +26,4 @@ Modify your app to use a MongoDB database.  The app should be able to read data 
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/mydb");
 module.exports = mongoose;
+console.log("mongoose connected")
