@@ -17,9 +17,12 @@
         var $title = $("#title");
         var $contents = $("#contents");
         $.get("/api/diary", function(diary) {
-            var dia = diary[0];
+            var len = diary.length;
+            var num = Math.floor(Math.random() * len);
+            var dia = diary[num];
+            console.log(num);
             var resDate = new Date(dia.date);
-            console.log(resDate);
+            
             
             var weekday = new Array(7);
             weekday[0] =  "Sun";
@@ -48,12 +51,17 @@
    
             var year = resDate.getFullYear();
             var day = resDate.getDay();
-                $date.append(month+" "+day+", "+year+" ("+week+")");
-                $title.append(diary[1].title);
-                $contents.append(diary[1].contents);
+            $date.append(month+" "+day+", "+year+" ("+week+")");
+            $title.append(dia.title);
+            
+            var p = dia.contents.split("\n");
+            for(i = 0; i<=p.length;i++){
+                $contents.append("<p align = 'center'>"+p[i]+"</p>");
+            };
                 
     
    });
+        
     });
   
     </script>
