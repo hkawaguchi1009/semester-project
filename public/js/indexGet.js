@@ -47,13 +47,3 @@ window.onload = function(){
 };
     
 
-
-/*var getWidget = document.getElementById("formGet");
-    var page2 = "";
-    page2 += "<form id = 'formGet' method = 'GET' action = 'http://mcs.drury.edu/ssigman/process.php'>"
-    page2 += "<input type = 'text' id = 'title' name = 'title' class = 'input'>"
-    page2 += "<input input type = 'text' id = 'title' name = 'title' class = 'input'>"
-    page2 += "<textarea id = 'contents' name = 'contents' class = 'input'></textarea>"
-    page2 += "</form>"
-    page2 += getWidget;
-    document.getElementById("page2");*/
