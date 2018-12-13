@@ -55,9 +55,6 @@ function validate() {
 }
 
 
-function parser(){
-    
-}
 
 function send(){var widget = $("#formWidget");
     var send = $("#send");
@@ -99,4 +96,3 @@ window.onload = function(){
     page2 += "</form>"
     page2 += getWidget;
     document.getElementById("page2");*/
-
