@@ -16,6 +16,9 @@ Post your data to http://mcs.drury.edu so that you can verify your data input fo
 Use jQuery to hard code your initial example data on summary pages.
 When finished merge milestone 4 into the development branch of your repo. Do not delete the Milestone 4 branch.
 Merge the development branch into your master branch.  Do not delete the development branch.
+
+Add additional functions one at a time using branches from Milestone5 on your Github repo.  Check each out to work on them locally and when completed push the code back to the Github repo and merge the feature branch into the Milestone5 branch.  For example, the first feature branch should probably be setting your project up to use a Node.js web server that serves your static pages.  (Follow the example in the book for the Participation Activity 11.3.1.)  Add additional features from there.  See the Milestone5 branch of my Github repo at https://github.com/ssigman/EMS-Drury for more examples.
+Modify your app to use a MongoDB database.  The app should be able to read data from the MongoDB database and add new records to the MongoDB database.
 */
 
 /*$(document).ready(function() {
@@ -41,26 +44,46 @@ function validate() {
         dateCSS.css("backgroundColor","Orange");
         event.preventDefault();
     }
-    if ($(title).length-1 <=0){
+    if ($(title).val() == ""){
         $(title).css("backgroundColor","Orange");
         event.preventDefault();
     }
-    if ($(contents).length-1 <=0){
+    if ($(contents).val() == ""){
         $(contents).css("backgroundColor","Orange");
         event.preventDefault();
     }
 }
 
 
-window.onload = function(){
-    var widget = $("#formWidget");
+
+function send(){var widget = $("#formWidget");
     var send = $("#send");
-    send.click(validate);
+    validate();
+    var diary = {
+        date: $("#date").val(),
+        title: $("#title").val(),
+        contents: $("#contents").val()
+    };
     
-    $.post("http://mcs.drury.edu",widget,"json");
-    
-    
+    $.ajax({
+        type: "POST",
+        url: "/api/diary",
+        data: JSON.stringify(diary),
+        contentType: "application/json"
+    }).done(function(data) {
+        console.log(data);
+        // Reset the form after saving the song
+        $("form").trigger("reset");
+    }).fail(function(jqXHR) {
+        console.log("The diary could not be added.");
+    });
+          }
+
+window.onload = function(){
+    $("#send").click(send);
 };
+    
+
     
 
 
