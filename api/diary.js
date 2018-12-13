@@ -28,11 +28,12 @@ var Diary = require("../models/diary");
 var router = require("express").Router();
 
 router.get("/",function(req,res){
-    Diary.find(function(req,res){
+    Diary.find(function(err,diary){
         if(err){
             res.status(400).send(err);
         }else{
             res.json(diary);
+            console.log("Through the router to get!");
         }
     });
 });
@@ -44,8 +45,10 @@ router.post("/",function(req,res){
             res.status(400).send(err);
         } else{
             res.status(201).json(diary);
+            console.log("Through the router to post!");
         }
     });
 });
 
 module.exports = router;
+
